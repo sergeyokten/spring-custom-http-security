@@ -57,7 +57,9 @@ public class CustomFirstEnterAndGenerateTokenFilter extends AbstractAuthenticati
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         System.out.println("successfulAuthentication");
+        
         response.setHeader("tokenb", "!!!" + authResult.getName() + "!!!");
+        response.setHeader("Access-Control-Expose-Headers", "tokenb, tokena");
 //        doFilter(request, response, chain);
 
     }
